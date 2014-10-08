@@ -4,22 +4,49 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 
 public class MainActivity extends Activity {
     private SeekBar velocidad=null;
+    private SeekBar aceleracion=null;
+    private ToggleButton tg1= null;
+    private ToggleButton tg2= null;
+    private ToggleButton tg3 = null;
+    private ToggleButton connect = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        aceleracion = (SeekBar) findViewById(R.id.seekBar2);
         velocidad = (SeekBar) findViewById(R.id.seekBar);
-        velocidad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        tg1= (ToggleButton) findViewById(R.id.toggleButton);
+        tg2= (ToggleButton) findViewById(R.id.toggleButton2);
+        tg3= (ToggleButton) findViewById(R.id.toggleButton3);
+        connect= (ToggleButton) findViewById(R.id.connect);
+        connect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-                TextView velText=(TextView) findViewById(R.id.vel);
-                velText.setText(progress+"");
+            public void onCheckedChanged(CompoundButton compoundButton, boolean connected) {
+            // Acá debe ir el intento de conexión al servidor
+                if(connected){
+
+                }
+            }
+        });
+        aceleracion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                TextView acelText=(TextView) findViewById(R.id.accel);
+                acelText.setText(i+"");
+                TextView acelText2=(TextView) findViewById(R.id.acceleration);
+                acelText2.setText(i+"");
+                ToggleButton connect=(ToggleButton) findViewById(R.id.connect);
+                if(connect.isChecked()){
+
+                }
             }
 
             @Override
@@ -30,6 +57,60 @@ public class MainActivity extends Activity {
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        });
+        velocidad.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+                TextView velText=(TextView) findViewById(R.id.vel);
+                velText.setText(progress+"");
+                TextView velText2=(TextView) findViewById(R.id.velocity);
+                velText2.setText(progress+"");
+                ToggleButton connect=(ToggleButton) findViewById(R.id.connect);
+                if(connect.isChecked()){
+
+                }
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+        tg1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                TextView toggleText=(TextView) findViewById(R.id.toggle1);
+                toggleText.setText( (b?"ON":"OFF"));
+                ToggleButton connect=(ToggleButton) findViewById(R.id.connect);
+                if(connect.isChecked()){
+
+                }
+            }
+        });tg2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                TextView toggleText=(TextView) findViewById(R.id.toggle2);
+                toggleText.setText((b?"ON":"OFF"));
+                ToggleButton connect=(ToggleButton) findViewById(R.id.connect);
+                if(connect.isChecked()){
+
+                }
+            }
+        });tg3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                TextView toggleText=(TextView) findViewById(R.id.toggle3);
+                toggleText.setText((b?"ON":"OFF"));
+                ToggleButton connect=(ToggleButton) findViewById(R.id.connect);
+                if(connect.isChecked()){
+
+                }
             }
         });
     }

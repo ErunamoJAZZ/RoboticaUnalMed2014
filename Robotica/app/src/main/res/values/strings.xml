@@ -7,4 +7,7 @@
     <string name="velocity">0</string>
     <string name="acceleration">0</string>
     <string name="data">off off off 0 0</string>
+    <string name="editIp">IP</string>
+    <string name="togg">Toggles</string>
+    <string name="ingresaIp">Ingresa la IP</string>
 </resources>

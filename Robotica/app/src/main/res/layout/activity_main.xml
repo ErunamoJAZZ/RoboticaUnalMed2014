@@ -9,32 +9,66 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/ingresaIp"
+            android:id="@+id/IP"
+            android:layout_gravity="center_horizontal" />
+
+
+        <EditText
+            android:layout_width="265dp"
+            android:layout_height="50dp"
+            android:id="@+id/editTextIP"
+            android:editable="false"
+            android:enabled="true"
+            android:hint="@string/editIp"
+            android:layout_gravity="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="text|numberDecimal" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Conectar"
+            android:id="@+id/connect"
+            android:layout_gravity="center"
+            android:textOff="Desconectado"
+            android:textOn="Conectado"
+            android:checked="false"
+            android:layout_marginBottom="20dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Toggles"
-            android:id="@+id/textView3"
-            android:layout_gravity="center_horizontal" />
+            android:text="@string/togg"
+            android:id="@+id/tog"
+            android:layout_gravity="center_horizontal"
+            android:singleLine="false" />
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
 
             <ToggleButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New ToggleButton"
                 android:id="@+id/toggleButton"
-                android:layout_gravity="center_horizontal" />
+                android:layout_gravity="left|center_horizontal" />
 
             <ToggleButton
                 android:layout_width="wrap_content"
@@ -47,7 +81,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New ToggleButton"
-                android:id="@+id/toggleButton3" />
+                android:id="@+id/toggleButton3"
+                android:layout_gravity="right" />
         </LinearLayout>
 
         <TextView
@@ -82,7 +117,8 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar"
                     android:layout_weight="1"
-                    android:indeterminate="false" />
+                    android:indeterminate="false"
+                    android:max="255" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -110,7 +146,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/seekBar2"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"
+                    android:max="255" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -129,12 +166,52 @@
             android:text="Data"
             android:id="@+id/textView8" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/data"
-            android:id="@+id/textView9" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Off"
+                android:id="@+id/toggle2"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Off"
+                android:id="@+id/toggle1"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Off"
+                android:id="@+id/toggle3"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0"
+                android:id="@+id/velocity"
+                android:layout_margin="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="0"
+                android:id="@+id/acceleration"
+                android:layout_margin="5dp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
